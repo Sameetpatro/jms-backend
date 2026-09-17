@@ -81,17 +81,8 @@ func (s *CloudinaryStorage) DeletePNG(ctx context.Context, publicID string) erro
 // DeleteAllPNGs removes every asset under the given prefix (e.g. "qr/").
 // Used by the admin full-reset flow.
 func (s *CloudinaryStorage) DeleteAllPNGs(ctx context.Context, prefix string) error {
-	ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
-	defer cancel()
-
-	_, err := s.cld.Admin.DeleteAssetsByPrefix(ctx, admin.DeleteAssetsByPrefixParams{
-		Prefix:     api.CldAPIArray{prefix},
-		Invalidate: api.Bool(true),
-	})
-	if err != nil {
-		return fmt.Errorf("cloudinary delete by prefix %s: %w", prefix, err)
-	}
-	return nil
+	_, err := s.PurgeAll(ctx, prefix)
+	return err
 }
 
 // PurgeAll deletes every image asset under prefix, looping because Cloudinary's

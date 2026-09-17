@@ -9,9 +9,9 @@ import (
 func TestRenderInvitationCard(t *testing.T) {
 	data, err := renderInvitationCard("test-token", GuestCardInfo{
 		Name:          "Test Guest",
-		EventName:     "FELICITATIONS & VEER GOKULA MANCHAN",
-		EventDate:     "19 July 2026 | 1:00 PM",
-		EventLocation: "Bharat Mandapam, New Delhi",
+		EventName:     "Sample Event",
+		EventDate:     "01 Jan 2027 | 10:00 AM",
+		EventLocation: "Convention Hall, City",
 	})
 	if err != nil {
 		t.Fatalf("render card: %v", err)

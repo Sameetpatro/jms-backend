@@ -31,10 +31,10 @@ services:
       - key: AUTO_MIGRATE
         value: "true"
       - key: EVENT_NAME
-        value: FELICITATIONS & VEER GOKULA MANCHAN
+        value: New Event
       - key: EVENT_DATE
-        value: "19 July 2026 | 1:00 PM"
+        value: "Event Date | Time"
       - key: EVENT_LOCATION
-        value: Bharat Mandapam, New Delhi
+        value: Event Venue
       - key: CORS_ALLOWED_ORIGINS
         value: "*"
